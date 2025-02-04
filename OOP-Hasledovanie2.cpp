@@ -128,7 +128,7 @@ public:
     void get_Phigure()override
     {
         cout << "Равносторонний треугольник:" << endl;
-        if (AAngle == BAngle == CAngle == 60 && ASide == BSide == CSide)
+        if (AAngle ==60 &&  BAngle == 60 &&  CAngle == 60 && ASide == BSide && ASide == CSide)
         {
             cout << "Правильная" << endl;
         }
@@ -149,7 +149,7 @@ public:
     void get_Phigure() override
     {
         cout << "Четырёхугольник:" << endl;
-        if (CountSide==4 && AAngle+ BAngle + CAngle + DAngle == 360)
+        if (CountSide== 4 && AAngle + BAngle + CAngle + DAngle == 360)
         {
             cout << "Правильная" << endl;
         }
@@ -170,7 +170,7 @@ public:
     void get_Phigure() override
     {
         cout << "Прямоугольник:" << endl;
-        if (AAngle == BAngle == CAngle == DAngle == 90 && ASide == CSide && BSide == DSide)
+        if (AAngle ==90 && BAngle ==90 &&  CAngle ==90 &&  DAngle == 90 && ASide == CSide && BSide == DSide)
         {
             cout << "Правильная" << endl;
         }
@@ -190,7 +190,7 @@ public:
     void get_Phigure() override
     {
         cout << "Квадрат:" << endl;
-        if (AAngle == BAngle == CAngle == DAngle == 90 && ASide == CSide == BSide == DSide)
+        if (AAngle == 90 &&  BAngle == 90 &&  CAngle == 90 &&  DAngle == 90 && ASide == CSide && BSide == DSide && ASide == BSide)
         {
             cout << "Правильная" << endl;
         }
@@ -210,7 +210,7 @@ public:
     void get_Phigure() override
     {
         cout << "Ромб:" << endl;
-        if ( AAngle == CAngle && BAngle == DAngle && ASide == CSide == BSide == DSide)
+        if ( AAngle == CAngle && BAngle == DAngle && ASide == CSide && BSide == DSide && ASide == BSide )
         {
             cout << "Правильная" << endl;
         }
