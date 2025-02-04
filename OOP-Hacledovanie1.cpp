@@ -33,13 +33,16 @@ class Phigure{
     this->CAngle = CAngle1;
     this->DAngle= DAngle;
     }
+virtual void get_Phigure()=0;
+
+virtual ~Phigure(){}
 
 };
 class Treygolni:public Phigure{
 
     public:
     using Phigure::Phigure;
-    void get_Treygolnik()
+     void get_Phigure() override
     {
         cout << "Треугольник:"<<endl;
         cout <<"Стороны: a=" << ASide << " b=" << BSide<<" c="<< CSide<< endl;
@@ -50,7 +53,7 @@ class Treygolni:public Phigure{
 class PryamoygolniTreygolnik: public Treygolni{
     public :
 using Treygolni::Treygolni;
-void get_PryamoygolniTreygolni()
+void get_Phigure() override
 {
     cout << "Прямоугольный треугольник:"<<endl;
     cout <<"Стороны: a=" << ASide << " b=" << BSide<<" c="<< CSide<< endl;
@@ -62,7 +65,7 @@ void get_PryamoygolniTreygolni()
 class RavnobedreniTreuqolnik: public Treygolni{
     public :
     using Treygolni::Treygolni;
-    void get_RavnobedreniTreuqolnik()
+    void get_Phigure() override
     {
     cout << "Равнобедренный треугольник:"<<endl;
     cout <<"Стороны: a=" << ASide << " b=" << BSide<<" c="<< CSide<< endl;
@@ -74,7 +77,7 @@ class RavnobedreniTreuqolnik: public Treygolni{
 class RavnostoroniiTreuqolnik: public Treygolni{
     public :
     using Treygolni::Treygolni;
-    void get_RavnostoroniTreuqolnik()
+    void get_Phigure()override
     {
     cout << "Равносторонний треугольник:"<<endl;
     cout <<"Стороны: a=" << ASide << " b=" << BSide<<" c="<< CSide<< endl;
@@ -87,7 +90,7 @@ class RavnostoroniiTreuqolnik: public Treygolni{
 class Chetriohugolnik:public Phigure{
     public:
     using Phigure::Phigure;
-    void get_Chetriohugolnik()
+    void get_Phigure() override
     {
         cout << "Четырёхугольник:"<<endl;
         cout <<"Стороны: a=" << ASide << " b=" << BSide<<" c="<< CSide<< " d="<<DSide << endl;
@@ -99,7 +102,7 @@ class Chetriohugolnik:public Phigure{
 class Pryamougolnik: public Chetriohugolnik{
     public :
     using Chetriohugolnik::Chetriohugolnik;
-    void get_Pryamougolnik()
+    void get_Phigure() override
     {
     cout << "Прямоугольник:"<<endl;
         cout <<"Стороны: a=" << ASide << " b=" << BSide<<" c="<< CSide<< " d="<<DSide << endl;
@@ -110,7 +113,7 @@ class Pryamougolnik: public Chetriohugolnik{
 class Kvadrat: public Chetriohugolnik{
     public :
     using Chetriohugolnik::Chetriohugolnik;
-    void get_Kvadrat()
+    void get_Phigure() override
     {
     cout << "Квадрат:"<<endl;
         cout <<"Стороны: a=" << ASide << " b=" << BSide<<" c="<< CSide<< " d="<<DSide << endl;
@@ -121,7 +124,7 @@ class Kvadrat: public Chetriohugolnik{
 class Pomb: public Chetriohugolnik{
     public :
     using Chetriohugolnik::Chetriohugolnik;
-    void get_Pomb()
+    void get_Phigure() override
     {
     cout << "Ромб:"<<endl;
         cout <<"Стороны: a=" << ASide << " b=" << BSide<<" c="<< CSide<< " d="<<DSide << endl;
@@ -132,7 +135,7 @@ class Pomb: public Chetriohugolnik{
 class Parallelogram: public Chetriohugolnik{
     public :
     using Chetriohugolnik::Chetriohugolnik;
-    void get_Parallelogram()
+    void get_Phigure() override
     {
     cout << "Параллелограмм:"<<endl;
         cout <<"Стороны: a=" << ASide << " b=" << BSide<<" c="<< CSide<< " d="<<DSide << endl;
@@ -145,23 +148,21 @@ class Parallelogram: public Chetriohugolnik{
 
 int main () 
 {
-Treygolni Treygolni(10,20,30,50,60,70);
-Treygolni.get_Treygolnik();
-Chetriohugolnik Chetriohugolnik(10,20,30,40,50,60,70,80);
-Chetriohugolnik.get_Chetriohugolnik();
-PryamoygolniTreygolnik PryamoygolniTreygolnik(10,20,30,45,45,90);
-PryamoygolniTreygolnik.get_PryamoygolniTreygolni();
-RavnobedreniTreuqolnik RavnobedreniTreuqolnik(30,30,40,50,50,80);
-RavnobedreniTreuqolnik.get_RavnobedreniTreuqolnik();
-RavnostoroniiTreuqolnik RavnostoroniiTreuqolnik(30,30,30,60,60,60);
-RavnostoroniiTreuqolnik.get_RavnostoroniTreuqolnik();
-Pryamougolnik Pryamougolnik(10,20,10,20,90,90,90,90);
-Pryamougolnik.get_Pryamougolnik();
-Kvadrat Kvadrat(10,10,10,10,90,90,90,90);
-Kvadrat.get_Kvadrat();
-Parallelogram Parallelogram(10,20,10,20,30,30,150,150);
-Parallelogram.get_Parallelogram();
-Pomb Pomb(10,10,10,10,60,120,60,120);
-Pomb.get_Pomb();
 
+Phigure* Treygolnik[] = {new Treygolni(10,20,30,50,60,70) , new PryamoygolniTreygolnik(10,20,30,30,60,90), new RavnobedreniTreuqolnik(10,10,20,50,80,50), new RavnostoroniiTreuqolnik(20,20,20,60,60,60)};
+
+for (int i = 0 ; i < 4 ; ++i)
+{
+    Treygolnik[i]->get_Phigure();
+}
+Phigure* Chetriohugolni[] = {new Chetriohugolnik(10,20,30,40,60,120,70,50) , new Pryamougolnik(10,20,10,20,90,90,90,90), new Kvadrat(20,20,20,20,90,90,90,90), new Pomb(20,20,20,20,60,120,60,120), new Parallelogram(20,30,20,30,60,120,60,120)};
+for (int i = 0; i < 5 ; ++i)
+{
+    Chetriohugolni[i]->get_Phigure();
+}
+
+delete Treygolnik;
+delete Chetriohugolni;
+
+return 0 ;
 }
