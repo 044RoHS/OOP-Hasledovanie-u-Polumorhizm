@@ -1,4 +1,5 @@
 #include <iostream>
+#include<string>
 
 
 using namespace std;
@@ -8,12 +9,17 @@ using namespace std;
  class Figure 
  {
 protected:
-int CountSide = 0;
+int CountSide ;
+std::string NameFigure;
+
 public:
 	
  void get_Figure ()
  {
-	cout<< "Фигура: " << CountSide <<endl;
+	CountSide = 0;
+	NameFigure  = "Фигура"; 
+
+	cout<< NameFigure << ": " << CountSide <<endl;
  }
 };
 class Treygolnik: public Figure
@@ -22,12 +28,13 @@ class Treygolnik: public Figure
 public:
 Treygolnik()
 {
+	NameFigure = "Треугольник";
 	CountSide = 3;
 
 }
 void get_Treygolnik()
 {
-	cout << "Треугольник: "<< CountSide<<endl;	
+	cout << NameFigure <<": "<< CountSide <<endl;	
 }
 };
 class Chetiryohygolink: public Figure
@@ -36,11 +43,12 @@ class Chetiryohygolink: public Figure
 public:
 Chetiryohygolink()
 {
-	CountSide = 4;
+	NameFigure ="Четырёхугольник";
+	CountSide= 4;
 }
 void get_Chetiryohygolink()
 {
-	cout << "Четырёхугольник: "<< CountSide<< endl; 
+	cout << NameFigure <<": "<< CountSide << endl; 
 }
 };
 int main ()
@@ -48,10 +56,10 @@ int main ()
 cout << "Количество сторон: "<< endl;
 Figure figure;;
 figure.get_Figure();
-Treygolnik treh;
-treh.get_Treygolnik();
-Chetiryohygolink fig ;
-fig.get_Chetiryohygolink();
+Treygolnik Treygolnik;
+Treygolnik.get_Treygolnik();
+Chetiryohygolink Chetiryohygolink ;
+Chetiryohygolink.get_Chetiryohygolink();
 
 
 }
